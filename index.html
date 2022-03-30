@@ -36,25 +36,17 @@
         $(document).ready(function () {
             let displayH=$(window).height();
             let displayW=$(window).width();
-            
             setInterval(xAnim,1500);
             
-            
-
-                //$("#container").append("<img src="+"img/x.png id="+i+"  >")
-                
-            
-            function xAnim(){
+           
+         function xAnim(){
                 let randH=Math.random()*displayH+1;
                 let randW=Math.random()*displayW+1;
-                $("img").clone().css({position:"absolute",left:randW,top:randH,visibility:"visible"}).appendTo("body");
+                $("#imgX").clone().css({position:"absolute",left:randW,top:randH,visibility:"visible"}).appendTo("body");
                 randH=Math.random()*displayH+1;
                 randW=Math.random()*displayW+1;
-                $("img").clone().css({position:"absolute",left:randW,top:randH,visibility:"visible"}).appendTo("body");
-            }
-                
-                
-            
+                $("#imgO").clone().css({position:"absolute",left:randW,top:randH,visibility:"visible"}).appendTo("body");
+            }      
         });
         </script>
     <title>Document</title>
@@ -62,8 +54,8 @@
 <body>
     
     <div id="container" >
-        <img src=img/x.png  >
-        <img src=img/o.png  >
+        <img id="imgX" src=img/x.png  >
+        <img id="imgO" src=img/o.png  >
         <div class="formUsername" id="inputUsername">
             <span class="itemsUsername" id="labelUsername">Username</span>
             <input class="itemsUsername">
