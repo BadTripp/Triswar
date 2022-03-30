@@ -36,6 +36,7 @@
             position: absolute;
             left: 32%;
             top: 30%;
+            z-index: 3;
         }
 
         #container {
@@ -55,16 +56,10 @@
         let displayW = $(window).width();
         $(document).ready(function () {
             setInterval(xAnim, 1500);
-            setInterval(oAnim, 1500);
-            function oAnim() {
-                let rH = Math.random() * displayH - 50;
-                let rW = Math.random() * displayW - 50;
-                $("#imgO").clone().css({ position: "absolute", left: rW, top: rH, visibility: "visible" }).appendTo("body");
-            }
             function xAnim() {
                 let randH = Math.random() * displayH + 1;
                 let randW = Math.random() * displayW + 1;
-                $("#imgX").clone().css({ position: "absolute", left: randW, top: randH, visibility: "visible" }).appendTo("body");
+                $("#imgX").clone().css({ position: "absolute", left: randW-50, top: randH-50, visibility: "visible" }).appendTo("body");
             }
 
 
@@ -74,7 +69,7 @@
     <title>TrisWar</title>
 </head>
 
-<body onload="Start();">
+<body >
 
     <div id="container">
         <div id="logo"><img src=img/logo.png></div>
