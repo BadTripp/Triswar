@@ -1,5 +1,3 @@
-
-
 //                                              0  1  2
 //                                              3  4  5
 //                                              6  7  8
@@ -14,22 +12,54 @@
 //  678
 
 
-var turno=1;
-function playerClick(casellaCliccata){ 
-    if(turno == 1){playerOne(casellaCliccata); turno=2; return}
-    if(turno == 2){playerTwo(casellaCliccata); turno=1;}
-    
-}
-function playerOne(casellaCliccata){
-    scriviCasellaX(casellaCliccata);
-}
-function playerTwo(casellaCliccata){
-    scriviCasellaO(casellaCliccata);
+// Variabili
+let restartBtn = document.getElementById('restartBtn');
+let celleTotali = 8;
+let turno = 'playerOne';
+
+
+// Cambio turno fra players
+function playerClick(casellaCliccata) {
+    if (turno == 'playerOne') { playerOne(casellaCliccata); turno = 'playerTwo'; return }
+    if (turno == 'playerTwo') { playerTwo(casellaCliccata); turno = 'playerOne'; }
 }
 
-function scriviCasellaX(casellaCliccata){
-    document.getElementById(casellaCliccata).innerText="X";
+function controlloSpam(casellaCliccata) {
+    for (i = 0; i <= celleTotali; i++) {
+        document.getElementById(casellaCliccata).onclick = "";
+    }
 }
-function scriviCasellaO(casellaCliccata){
-    document.getElementById(casellaCliccata).innerText="O";
+
+
+
+//  Ogni player scrive su una cella e non può ricliccaci se già selezionata
+function playerOne(casellaCliccata) {
+    controlloSpam(casellaCliccata);
+    scriviCasella(casellaCliccata);
 }
+
+function playerTwo(casellaCliccata) {
+    controlloSpam(casellaCliccata);
+    scriviCasella(casellaCliccata);
+}
+
+
+
+// Al click scrive una X/O nelle celle
+function scriviCasella(casellaCliccata) {
+    if(turno == 'playerOne') {
+        document.getElementById(casellaCliccata).innerText = "X";
+    }
+    else {
+        document.getElementById(casellaCliccata).innerText = "O";
+    }
+}
+
+
+
+// Al click del button restart, azzera il gioco
+restartBtn.addEventListener('click', function () {
+    for (i = 0; i <= celleTotali; i++) {
+        document.getElementById(i).innerHTML = '';
+    }
+});
