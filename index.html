@@ -13,7 +13,9 @@
         }
 
         #imgX {
+            position: absolute;
             visibility: hidden;
+            z-index:-1;
         }
 
         .formUsername {
@@ -36,7 +38,7 @@
             position: absolute;
             left: 32%;
             top: 30%;
-            z-index: 3;
+            z-index: 1;
         }
 
         #container {
@@ -55,11 +57,11 @@
         let displayH = $(window).height();
         let displayW = $(window).width();
         $(document).ready(function () {
-            setInterval(xAnim, 1500);
+            setInterval(xAnim, 500);
             function xAnim() {
                 let randH = Math.random() * displayH + 1;
                 let randW = Math.random() * displayW + 1;
-                $("#imgX").clone().css({ position: "absolute", left: randW-50, top: randH-50, visibility: "visible" }).appendTo("body");
+                $("#imgX").clone().css({ position: "absolute", left: randW, top: randH, visibility: "visible" }).appendTo("body");
             }
 
 
