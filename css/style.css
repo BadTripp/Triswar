@@ -1,44 +1,56 @@
-#imgO {
-    visibility: hidden;
-}
-
-#imgX {
-    position: absolute;
-    visibility: hidden;
-    z-index: -1;
-}
-
-.formUsername {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    left: 45%;
-    top: 45%;
-    background-color: white;
-}
-
-.itemsUsername {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    margin: 1px;
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
 #logo {
-    position: absolute;
-    left: 32%;
-    top: 30%;
-    z-index: 1;
+    width: 1000px;
 }
 
-#container {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
+#contenitore-logo {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    transform: translateY(250%);
+    z-index: 1000;
 }
 
-#inputUsername {
-    position: absolute;
+#username {
+    margin-top: 20px;
+    padding: 5px;
+    font-weight: 500;
+}
 
+#accediBtn {
+    padding: 5px;
+    width: 70px;
+    background-color: lightskyblue;
+    font-weight: 500;
+}
+
+#section-di-gioco {
+    display: none;
+}
+
+
+
+/* Media Queries */
+@media only screen and (max-width: 500px) {
+    #logo {
+        width: 400px;
+    }
+}
+
+
+@media only screen and (min-width: 480px) {
+    #logo {
+        width: 500px;
+    }
+}
+
+
+@media only screen and (min-width: 780px) {
+    #logo {
+        width: 700px;
+    }
 }
