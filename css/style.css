@@ -1,17 +1,19 @@
 body, html {
     margin: 0;
     padding: 0;
+    min-height: 100%;
+    min-width: 100%;
 }
-
 #logo {
     width: 1000px;
+    
 }
 
 #contenitore-logo {
     margin: 0 auto;
     text-align: center;
     position: relative;
-    transform: translateY(250%);
+    transform: translateY(200%);
     z-index: 1000;
 }
 

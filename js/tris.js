@@ -14,17 +14,19 @@
 //  678
 
 
-
-function playerClick(casellaCliccata){  
-     
-
+var turno=1;
+function playerClick(casellaCliccata){ 
+    if(turno == 1){playerOne(casellaCliccata); turno=2; return}
+    if(turno == 2){playerTwo(casellaCliccata); turno=1;}
     
 }
-
-
-function computerMove(){
-    scriviCasellaO();
+function playerOne(casellaCliccata){
+    scriviCasellaX(casellaCliccata);
 }
+function playerTwo(casellaCliccata){
+    scriviCasellaO(casellaCliccata);
+}
+
 function scriviCasellaX(casellaCliccata){
     document.getElementById(casellaCliccata).innerText="X";
 }
