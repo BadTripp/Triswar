@@ -13,7 +13,7 @@ $(document).ready(function () {
             i++
         }
 
-        console.log(i);
+        
 
         let randH = Math.random() * displayH + 1;
         let randW = Math.random() * displayW + 1;
