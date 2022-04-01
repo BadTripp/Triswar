@@ -37,6 +37,7 @@ let box =[
   [2, 7],
   [2, 8],
 ];
+
 let restartBtn = document.getElementById("restartBtn");
 let celleTotali = 8;
 let turno = 1;
@@ -53,7 +54,7 @@ function boxRestart(){
 // Controlla a indice(giocatore) se posizione 0,4,8 sono occupate e quindi ha vinto 
 function playerWin (){
         //cosa fare quando un giocatore vince 
-        alert("Vincitore Giocatore"+turno );
+        document.getElementById("labelTurni").innerText="Vincitore Giocatore:"+turno;
 }
 function CheckWin(giocatore) { 
   //                          win case
@@ -125,16 +126,19 @@ function CheckWin(giocatore) {
 
 // Cambio turno fra players
 function playerClick(casellaCliccata) {
+  document.getElementById("labelTurni").innerText="Turno del Giocatore:"+turno; //Cambio label turni
   box[turno][casellaCliccata] = 1;
   console.log("|"+turno+"|"+casellaCliccata+"="+box[turno][casellaCliccata]);
-  if(CheckWin(turno, box)==true){playerWin();}
+  
   if (turno == 1) {
     playerOne(casellaCliccata);
+    if(CheckWin(turno, box)==true){playerWin();}
     turno = 2;
     return;
   }
   if (turno == 2) {
     playerTwo(casellaCliccata);
+    if(CheckWin(turno, box)==true){playerWin();}
     turno = 1;
   }
   
@@ -144,6 +148,7 @@ function controlloSpam(casellaCliccata) {
     document.getElementById(casellaCliccata).onclick = "";
   }
 }
+
 
 //  Ogni player scrive su una cella e non può ricliccaci se già selezionata
 function playerOne(casellaCliccata) {
@@ -170,4 +175,5 @@ restartBtn.addEventListener("click", function () {
   for (i = 0; i <= celleTotali; i++) {
     document.getElementById(i).innerHTML = "";
   }
+  boxRestart();
 });
